@@ -2,6 +2,8 @@
 <html lang="zh-CN">
   <head>
     
+<meta name="google-site-verification" content="DwDg4EuywHWNZUkTC7sG0WGv_UQekM4uRtOoaGuDJHc" />
+<meta name="baidu-site-verification" content="hkLiBHH93D" />
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
@@ -22,7 +24,6 @@
 
 
 
-
   <link rel="alternate" href="/default" title="Gee-Blog">
 
 
@@ -35,15 +36,15 @@
 <link rel="canonical" href="https://gee233.xyz/2020/04/18/Sendmail一键安装脚本/"/>
 
 
-<meta name="description" content="sendmil是用来发邮件的，当脚本检测到服务器各种异常时可以及时发送邮件通知，如【服务器告警脚本】 123456789101112131415161718192021222324252627282930#!&#x2F;bin&#x2F;bash#卸载postfix(可选)及安装sendmail和mailxyum remove postfixyum -y install sendmail* mailx systemc">
+<meta name="description" content="SendEmail是一个免费、轻量级、命令行的SMTP邮件客户端，使用简单、功能强大">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sendmail一键安装脚本">
 <meta property="og:url" content="https://gee233.xyz/2020/04/18/Sendmail%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="Gee-Blog">
-<meta property="og:description" content="sendmil是用来发邮件的，当脚本检测到服务器各种异常时可以及时发送邮件通知，如【服务器告警脚本】 123456789101112131415161718192021222324252627282930#!&#x2F;bin&#x2F;bash#卸载postfix(可选)及安装sendmail和mailxyum remove postfixyum -y install sendmail* mailx systemc">
+<meta property="og:description" content="SendEmail是一个免费、轻量级、命令行的SMTP邮件客户端，使用简单、功能强大">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-18T05:04:53.000Z">
-<meta property="article:modified_time" content="2020-05-28T02:37:09.916Z">
+<meta property="article:modified_time" content="2020-05-28T09:46:47.541Z">
 <meta property="article:author" content="Gee233">
 <meta property="article:tag" content="sendmail,shell,mail,centos7">
 <meta name="twitter:card" content="summary">
@@ -51,6 +52,7 @@
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
 
 
 
@@ -71,6 +73,18 @@
 
 
 
+
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b733e1eaeacbf8f87d3be047f28c3973";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
     <title> Sendmail一键安装脚本 - Gee-Blog </title>
   <meta name="generator" content="Hexo 4.2.1"></head>
 
@@ -85,7 +99,9 @@
         
             <ul id="menu-top" class="nav-top-items">
                 
-                    <li class="menu-item">
+                    
+                        <li class="menu-item">
+                    
                         <a href="/archives">
                             
                             
@@ -94,7 +110,20 @@
                         </a>
                     </li>
                 
-                    <li class="menu-item">
+                    
+                        <li class="menu-item">
+                    
+                        <a href="/book">
+                            
+                            
+                                资源
+                            
+                        </a>
+                    </li>
+                
+                    
+                        <li class="menu-item">
+                    
                         <a href="/about">
                             
                             
@@ -122,15 +151,25 @@
       </h1>
 
       <time class="post-time">
-          4月 18 2020
+          2020-04-18
       </time>
     </header>
 
 
 
     
+            
+
             <div class="post-content">
-            <p>sendmil是用来发邮件的，当脚本检测到服务器各种异常时可以及时发送邮件通知，如【<a href="http://a.gee233.xyz/2020/04/18/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%8A%E8%AD%A6%E8%84%9A%E6%9C%AC/" target="_blank" rel="noopener">服务器告警脚本</a>】</p>
+                <div class="excerpt">
+SendEmail是一个免费、轻量级、命令行的SMTP邮件客户端，使用简单、功能强大
+</div>
+
+<a id="more"></a>
+
+<blockquote>
+<p>sendmil是用来发邮件的，当脚本检测到服务器各种异常时可以及时发送邮件通知，如【<a href="https://gee233.xyz/2020/04/18/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%8A%E8%AD%A6%E8%84%9A%E6%9C%AC/">Linux存储及内存检测告警脚本</a>】</p>
+</blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#卸载postfix(可选)及安装sendmail和mailx</span></span><br><span class="line">yum remove postfix</span><br><span class="line">yum -y install sendmail* mailx </span><br><span class="line">systemctl start sendmail.service &amp;&gt; /dev/null &amp;&amp; systemctl <span class="built_in">enable</span> sendmail.service &amp;&gt; /dev/null</span><br><span class="line"></span><br><span class="line"><span class="comment">#安装完成后输出消息</span></span><br><span class="line"><span class="keyword">if</span> [ $? -eq 0 ];<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> -e <span class="string">"\033[32mSendmail installation and operation completed!\033[0m"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提示</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[32m +------------------+ \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[32m |     SMTP配置      | \033[0m"</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"\033[32m +------------------+ \033[0m"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#SMTP配置，不同邮箱配置不同，自行谷哥度娘</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入发件人邮箱: "</span> senduser</span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入SMTP服务器: "</span> mailserv</span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"请输入IMAP/SMTP的十六位秘钥: "</span> mailpwd</span><br><span class="line"></span><br><span class="line"><span class="comment">#发送邮件默认会使用linux当前登录用户，通常会被当成垃圾邮件，所以修改配置文件指定发件人邮箱信息</span></span><br><span class="line">cat &gt;&gt; /etc/mail.rc &lt;&lt;-EOF</span><br><span class="line"><span class="built_in">set</span> from=<span class="variable">$senduser</span></span><br><span class="line"><span class="built_in">set</span> smtp=<span class="variable">$mailserv</span></span><br><span class="line"><span class="built_in">set</span> smtp-auth-user=<span class="variable">$senduser</span></span><br><span class="line"><span class="built_in">set</span> smtp-auth-password=<span class="variable">$mailpwd</span></span><br><span class="line"><span class="built_in">set</span> smtp-auth=login</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
 <p>发送邮件：”mail test”为邮件主题，<a href="mailto:receive@user.com">receive@user.com</a>为收件人邮箱</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mail -s <span class="string">'mail test'</span> receive@user.com &lt; mail.txt</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"this is my test mail"</span> | mail -s <span class="string">'mail test'</span> receive@user.com</span><br></pre></td></tr></table></figure>
@@ -141,6 +180,19 @@
 
     
       <footer class="post-footer">
+      <ul class="post-copyright">
+        <li class="post-copyright-author">
+            <span>本文作者：</span>Gee233
+        </li>
+        <li class="post-copyright-link">
+          <span>本文链接：</span>
+          <a href="https://gee233.xyz//2020/04/18/Sendmail%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC/" title="Sendmail一键安装脚本">https://gee233.xyz/2020/04/18/Sendmail一键安装脚本/</a>
+        </li>
+        <li class="post-copyright-license">
+          <span>版权： </span>
+          本站文章均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议，请勿用于商业，转载注明出处！
+        </li>
+      </ul>
 		
 		<div class="post-tags">
 		  
@@ -153,9 +205,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2020/04/18/%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E8%84%9A%E6%9C%AC/">
+      <a class="prev" href="/2020/04/18/Linux%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E8%84%9A%E6%9C%AC/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">系统用户管理脚本</span>
+        <span class="prev-text nav-default">Linux用户管理脚本</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
@@ -181,7 +233,13 @@
     </div>
 
       </div>
+      
+        
 
+
+
+
+      
       <footer id="colophon">
 
       </footer>
@@ -193,9 +251,6 @@
     
 
 
-    
-
-
 
 
   
@@ -204,8 +259,13 @@
 
   
 
+
+
     <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
 <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+<!--prettify代码高亮脚本引入-->
+
 
   </body>
 </html>

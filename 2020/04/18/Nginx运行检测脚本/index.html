@@ -2,6 +2,8 @@
 <html lang="zh-CN">
   <head>
     
+<meta name="google-site-verification" content="DwDg4EuywHWNZUkTC7sG0WGv_UQekM4uRtOoaGuDJHc" />
+<meta name="baidu-site-verification" content="hkLiBHH93D" />
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
@@ -18,7 +20,6 @@
 
 
   <meta name="keywords" content="nginx,shell," />
-
 
 
 
@@ -56,6 +57,7 @@
 
 
 
+
 <script type="text/javascript">
   var themeConfig = {
     fancybox: {
@@ -71,6 +73,18 @@
 
 
 
+
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b733e1eaeacbf8f87d3be047f28c3973";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
     <title> Nginx运行检测脚本 - Gee-Blog </title>
   <meta name="generator" content="Hexo 4.2.1"></head>
 
@@ -85,7 +99,9 @@
         
             <ul id="menu-top" class="nav-top-items">
                 
-                    <li class="menu-item">
+                    
+                        <li class="menu-item">
+                    
                         <a href="/archives">
                             
                             
@@ -94,7 +110,20 @@
                         </a>
                     </li>
                 
-                    <li class="menu-item">
+                    
+                        <li class="menu-item">
+                    
+                        <a href="/book">
+                            
+                            
+                                资源
+                            
+                        </a>
+                    </li>
+                
+                    
+                        <li class="menu-item">
+                    
                         <a href="/about">
                             
                             
@@ -122,21 +151,36 @@
       </h1>
 
       <time class="post-time">
-          4月 18 2020
+          2020-04-18
       </time>
     </header>
 
 
 
     
+            
+
             <div class="post-content">
-            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash </span></span><br><span class="line"></span><br><span class="line">if ! netstat &amp;&gt;/dev/null;then        </span><br><span class="line">	yum install -y net-tools </span><br><span class="line">fi </span><br><span class="line"></span><br><span class="line">nginx=`netstat -tnlp | grep 80 | grep nginx | wc -l` </span><br><span class="line">if [ "$nginx" -gt 0 ];then        		</span><br><span class="line">	echo "Nginx is running..." </span><br><span class="line">else        </span><br><span class="line">	echo "Nginx is stopped"        </span><br><span class="line">	/usr/local/nginx/sbin/nginx </span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+                <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash </span></span><br><span class="line"></span><br><span class="line">if ! netstat &amp;&gt;/dev/null;then        </span><br><span class="line">	yum install -y net-tools </span><br><span class="line">fi </span><br><span class="line"></span><br><span class="line">nginx=`netstat -tnlp | grep 80 | grep nginx | wc -l` </span><br><span class="line">if [ "$nginx" -gt 0 ];then        		</span><br><span class="line">	echo "Nginx is running..." </span><br><span class="line">else        </span><br><span class="line">	echo "Nginx is stopped"        </span><br><span class="line">	/usr/local/nginx/sbin/nginx </span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x nginxtest.sh</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"*/1 * * * * bash nginxtest.sh"</span> &gt;&gt; /etc/crontab</span><br></pre></td></tr></table></figure>
             </div>
           
 
     
       <footer class="post-footer">
+      <ul class="post-copyright">
+        <li class="post-copyright-author">
+            <span>本文作者：</span>Gee233
+        </li>
+        <li class="post-copyright-link">
+          <span>本文链接：</span>
+          <a href="https://gee233.xyz//2020/04/18/Nginx%E8%BF%90%E8%A1%8C%E6%A3%80%E6%B5%8B%E8%84%9A%E6%9C%AC/" title="Nginx运行检测脚本">https://gee233.xyz/2020/04/18/Nginx运行检测脚本/</a>
+        </li>
+        <li class="post-copyright-license">
+          <span>版权： </span>
+          本站文章均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议，请勿用于商业，转载注明出处！
+        </li>
+      </ul>
 		
 		<div class="post-tags">
 		  
@@ -156,8 +200,8 @@
       </a>
     
     
-      <a class="next" href="/2020/04/18/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%8A%E8%AD%A6%E8%84%9A%E6%9C%AC/">
-        <span class="next-text nav-default">服务器告警脚本</span>
+      <a class="next" href="/2020/04/18/Linux%E5%AD%98%E5%82%A8%E5%8F%8A%E5%86%85%E5%AD%98%E6%A3%80%E6%B5%8B%E5%91%8A%E8%AD%A6%E8%84%9A%E6%9C%AC/">
+        <span class="next-text nav-default">Linux存储及内存检测告警脚本</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
@@ -177,7 +221,13 @@
     </div>
 
       </div>
+      
+        
 
+
+
+
+      
       <footer id="colophon">
 
       </footer>
@@ -189,9 +239,6 @@
     
 
 
-    
-
-
 
 
   
@@ -200,8 +247,13 @@
 
   
 
+
+
     <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
 <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+<!--prettify代码高亮脚本引入-->
+
 
   </body>
 </html>

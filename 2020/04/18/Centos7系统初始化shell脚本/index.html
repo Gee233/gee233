@@ -2,6 +2,8 @@
 <html lang="zh-CN">
   <head>
     
+<meta name="google-site-verification" content="DwDg4EuywHWNZUkTC7sG0WGv_UQekM4uRtOoaGuDJHc" />
+<meta name="baidu-site-verification" content="hkLiBHH93D" />
 <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
@@ -22,7 +24,6 @@
 
 
 
-
   <link rel="alternate" href="/default" title="Gee-Blog">
 
 
@@ -35,15 +36,15 @@
 <link rel="canonical" href="https://gee233.xyz/2020/04/18/Centos7系统初始化shell脚本/"/>
 
 
-<meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta name="description" content="Centos7，简单的初始化脚本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Centos7系统初始化shell脚本">
 <meta property="og:url" content="https://gee233.xyz/2020/04/18/Centos7%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96shell%E8%84%9A%E6%9C%AC/index.html">
 <meta property="og:site_name" content="Gee-Blog">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210">
+<meta property="og:description" content="Centos7，简单的初始化脚本">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-04-17T17:13:30.000Z">
-<meta property="article:modified_time" content="2020-05-28T02:37:01.188Z">
+<meta property="article:modified_time" content="2020-05-28T09:34:44.969Z">
 <meta property="article:author" content="Gee233">
 <meta property="article:tag" content="shell,centos7,server,linux">
 <meta name="twitter:card" content="summary">
@@ -51,6 +52,7 @@
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1" />
 <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+
 
 
 
@@ -71,6 +73,18 @@
 
 
 
+
+
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b733e1eaeacbf8f87d3be047f28c3973";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
     <title> Centos7系统初始化shell脚本 - Gee-Blog </title>
   <meta name="generator" content="Hexo 4.2.1"></head>
 
@@ -85,7 +99,9 @@
         
             <ul id="menu-top" class="nav-top-items">
                 
-                    <li class="menu-item">
+                    
+                        <li class="menu-item">
+                    
                         <a href="/archives">
                             
                             
@@ -94,7 +110,20 @@
                         </a>
                     </li>
                 
-                    <li class="menu-item">
+                    
+                        <li class="menu-item">
+                    
+                        <a href="/book">
+                            
+                            
+                                资源
+                            
+                        </a>
+                    </li>
+                
+                    
+                        <li class="menu-item">
+                    
                         <a href="/about">
                             
                             
@@ -122,20 +151,41 @@
       </h1>
 
       <time class="post-time">
-          4月 18 2020
+          2020-04-18
       </time>
     </header>
 
 
 
     
+            
+
             <div class="post-content">
-            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">col_red="\033[31m"</span><br><span class="line">col_gre="\033[32m"</span><br><span class="line">col_reset="\033[0m"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">判断是否为root用户</span></span><br><span class="line">if [ `whoami` != "root" ];then</span><br><span class="line">    echo -e "$col_red Error: You must be root to run it!$col_reset"</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">执行前提示</span></span><br><span class="line">echo -e "$col_red 这是centos7系统初始化脚本!$col_reset"</span><br><span class="line">read -s -n1 -p "Press any key to continue or ctrl+C to cancel"</span><br><span class="line">echo "Your inputs: $REPLY"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">1.配置yum源</span></span><br><span class="line">yum_config()&#123;</span><br><span class="line">    echo -e "$col_gre Starting config yum $col_reset"</span><br><span class="line"></span><br><span class="line">    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line">    rm /etc/yum.repos.d/* -rf;curl -ssL [http://mirrors.163.com/.help/CentOS7-Base-163.repo&gt;/etc/yum.repos.d/CentOS-Base.repo](http://mirrors.163.com/.help/CentOS7-Base-163.repo%3e/etc/yum.repos.d/CentOS-Base.repo)</span><br><span class="line">    yum clean all &amp;&amp; yum makecache</span><br><span class="line"></span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre yum config complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">2.文件句柄数量配置</span></span><br><span class="line">ulimit_config()&#123;</span><br><span class="line">    echo -e "$col_gre Starting config ulimit... $col_reset"</span><br><span class="line">    </span><br><span class="line">    ulimit -n 204800</span><br><span class="line">    </span><br><span class="line">    cat &gt;&gt; /etc/security/limits.conf &lt;&lt;-EOF</span><br><span class="line">    * soft nproc 204800</span><br><span class="line">    * hard nproc 204800</span><br><span class="line">    * soft nofile 204800</span><br><span class="line">    * hard nofile 204800</span><br><span class="line">    EOF</span><br><span class="line">    </span><br><span class="line">    cat &gt;&gt; /etc/sysctl.conf &lt;&lt;-EOF</span><br><span class="line">    fs.file-max = 6553560</span><br><span class="line">    EOF</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre Ulimit config complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">3.关闭一些不必要的服务</span></span><br><span class="line">system_optimization()&#123;</span><br><span class="line">    echo -e "$col_gre System Optimization... $col_reset"</span><br><span class="line">    </span><br><span class="line">    #关闭防火墙</span><br><span class="line">    systemctl stop firewalld.service &amp;&gt; /dev/null</span><br><span class="line">    systemctl disable firewalld.service &amp;&gt; /dev/null</span><br><span class="line">    </span><br><span class="line">    #关闭selinux</span><br><span class="line">    setenforce 0</span><br><span class="line">    sed -ri 's/^(SELINUX=).*/\1disabled/g' /etc/selinux/config</span><br><span class="line">    </span><br><span class="line">    #关闭邮件服务</span><br><span class="line">    systemctl stop postfix.service &amp;&gt; /dev/null</span><br><span class="line">    systemctl disable postfix.service &amp;&gt; /dev/null</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre System Optimization complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">4.安装常用工具</span></span><br><span class="line">yum_tools()&#123;</span><br><span class="line">    echo -e "$col_gre Starting install tools... $col_reset"</span><br><span class="line">    </span><br><span class="line">    yum install –y vim wget git curl curl-devel bash-completion lsof iotop iostat unzip net-tools</span><br><span class="line">    source /usr/share/bash-completion/bash_completion</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre yum tools complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">5.配置NTP</span></span><br><span class="line">ntp_config()&#123;</span><br><span class="line">    echo -e "$col_gre Starting config ntp... $col_reset"</span><br><span class="line">    </span><br><span class="line">    yum install -y ntp</span><br><span class="line">    systemctl start ntpd &amp;&amp; systemctl enable ntpd</span><br><span class="line">    timedatectl set-timezone Asia/Shanghai &amp;&amp; timedatectl set-ntp yes</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre ntp config complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">6.创建生产环境目录</span></span><br><span class="line">mk_dir()&#123;</span><br><span class="line">    echo -e "$col_gre Starting mkdir... $col_reset"</span><br><span class="line">    </span><br><span class="line">    mkdir -p /home/&#123;/log/nginx,/log/php,/log/mysql,/log/php-fpm,/run/mysql,/wwwroot,/backup,/DATA/MySQL-DATA&#125;</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre mkdir complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">执行脚本</span></span><br><span class="line">main()&#123;</span><br><span class="line">    yum_config;</span><br><span class="line">    ulimit_config;</span><br><span class="line">    system_optimization;</span><br><span class="line">    yum_tools;</span><br><span class="line">    ntp_config;</span><br><span class="line">    mk_dir;</span><br><span class="line">&#125;</span><br><span class="line">main</span><br></pre></td></tr></table></figure>
+                <div class="excerpt">
+Centos7，简单的初始化脚本
+</div>
+
+<a id="more"></a>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">col_red="\033[31m"</span><br><span class="line">col_gre="\033[32m"</span><br><span class="line">col_reset="\033[0m"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">判断是否为root用户</span></span><br><span class="line">if [ `whoami` != "root" ];then</span><br><span class="line">    echo -e "$col_red Error: You must be root to run it!$col_reset"</span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">执行前提示</span></span><br><span class="line">echo -e "$col_red 这是centos7系统初始化脚本!$col_reset"</span><br><span class="line">read -s -n1 -p "Press any key to continue or ctrl+C to cancel"</span><br><span class="line">echo "Your inputs: $REPLY"</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">1.配置yum源</span></span><br><span class="line">yum_config()&#123;</span><br><span class="line">    echo -e "$col_gre Starting config yum $col_reset"</span><br><span class="line"></span><br><span class="line">    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line">    rm /etc/yum.repos.d/* -rf;curl -ssL [http://mirrors.163.com/.help/CentOS7-Base-163.repo&gt;/etc/yum.repos.d/CentOS-Base.repo](http://mirrors.163.com/.help/CentOS7-Base-163.repo%3e/etc/yum.repos.d/CentOS-Base.repo)</span><br><span class="line">    yum clean all &amp;&amp; yum makecache</span><br><span class="line"></span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre yum config complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">2.文件句柄数量配置</span></span><br><span class="line">ulimit_config()&#123;</span><br><span class="line">    echo -e "$col_gre Starting config ulimit... $col_reset"</span><br><span class="line">    </span><br><span class="line">    ulimit -n 204800</span><br><span class="line">    </span><br><span class="line">    cat &gt;&gt; /etc/security/limits.conf &lt;&lt;-EOF</span><br><span class="line">    * soft nproc 204800</span><br><span class="line">    * hard nproc 204800</span><br><span class="line">    * soft nofile 204800</span><br><span class="line">    * hard nofile 204800</span><br><span class="line">    EOF</span><br><span class="line">    </span><br><span class="line">    cat &gt;&gt; /etc/sysctl.conf &lt;&lt;-EOF</span><br><span class="line">    fs.file-max = 6553560</span><br><span class="line">    EOF</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre Ulimit config complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">3.关闭一些不必要的服务</span></span><br><span class="line">system_optimization()&#123;</span><br><span class="line">    echo -e "$col_gre System Optimization... $col_reset"</span><br><span class="line">    </span><br><span class="line">    #关闭防火墙</span><br><span class="line">    systemctl stop firewalld.service &amp;&gt; /dev/null</span><br><span class="line">    systemctl disable firewalld.service &amp;&gt; /dev/null</span><br><span class="line">    </span><br><span class="line">    #关闭selinux</span><br><span class="line">    setenforce 0</span><br><span class="line">    sed -ri 's/^(SELINUX=).*/\1disabled/g' /etc/selinux/config</span><br><span class="line">    </span><br><span class="line">    #关闭邮件服务</span><br><span class="line">    systemctl stop postfix.service &amp;&gt; /dev/null</span><br><span class="line">    systemctl disable postfix.service &amp;&gt; /dev/null</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre System Optimization complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">4.安装常用工具</span></span><br><span class="line">yum_tools()&#123;</span><br><span class="line">    echo -e "$col_gre Starting install tools... $col_reset"</span><br><span class="line">    </span><br><span class="line">    yum install –y vim wget git curl curl-devel bash-completion lsof iotop iostat unzip net-tools</span><br><span class="line">    source /usr/share/bash-completion/bash_completion</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre yum tools complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">5.配置NTP</span></span><br><span class="line">ntp_config()&#123;</span><br><span class="line">    echo -e "$col_gre Starting config ntp... $col_reset"</span><br><span class="line">    </span><br><span class="line">    yum install -y ntp</span><br><span class="line">    systemctl start ntpd &amp;&amp; systemctl enable ntpd</span><br><span class="line">    timedatectl set-timezone Asia/Shanghai &amp;&amp; timedatectl set-ntp yes</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre ntp config complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">6.创建生产环境目录</span></span><br><span class="line">mk_dir()&#123;</span><br><span class="line">    echo -e "$col_gre Starting mkdir... $col_reset"</span><br><span class="line">    </span><br><span class="line">    mkdir -p /home/&#123;/log/nginx,/log/php,/log/mysql,/log/php-fpm,/run/mysql,/wwwroot,/backup,/DATA/MySQL-DATA&#125;</span><br><span class="line">    </span><br><span class="line">    [ $? -eq 0 ] &amp;&amp; echo -e "$col_gre mkdir complete! $col_reset"</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">执行脚本</span></span><br><span class="line">main()&#123;</span><br><span class="line">    yum_config;</span><br><span class="line">    ulimit_config;</span><br><span class="line">    system_optimization;</span><br><span class="line">    yum_tools;</span><br><span class="line">    ntp_config;</span><br><span class="line">    mk_dir;</span><br><span class="line">&#125;</span><br><span class="line">main</span><br></pre></td></tr></table></figure>
             </div>
           
 
     
       <footer class="post-footer">
+      <ul class="post-copyright">
+        <li class="post-copyright-author">
+            <span>本文作者：</span>Gee233
+        </li>
+        <li class="post-copyright-link">
+          <span>本文链接：</span>
+          <a href="https://gee233.xyz//2020/04/18/Centos7%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96shell%E8%84%9A%E6%9C%AC/" title="Centos7系统初始化shell脚本">https://gee233.xyz/2020/04/18/Centos7系统初始化shell脚本/</a>
+        </li>
+        <li class="post-copyright-license">
+          <span>版权： </span>
+          本站文章均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0 CN</a> 许可协议，请勿用于商业，转载注明出处！
+        </li>
+      </ul>
 		
 		<div class="post-tags">
 		  
@@ -148,9 +198,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2020/04/18/%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%91%8A%E8%AD%A6%E8%84%9A%E6%9C%AC/">
+      <a class="prev" href="/2020/04/18/Linux%E5%AD%98%E5%82%A8%E5%8F%8A%E5%86%85%E5%AD%98%E6%A3%80%E6%B5%8B%E5%91%8A%E8%AD%A6%E8%84%9A%E6%9C%AC/">
         <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">服务器告警脚本</span>
+        <span class="prev-text nav-default">Linux存储及内存检测告警脚本</span>
         <span class="prev-text nav-mobile">Prev</span>
       </a>
     
@@ -170,7 +220,13 @@
     </div>
 
       </div>
+      
+        
 
+
+
+
+      
       <footer id="colophon">
 
       </footer>
@@ -182,9 +238,6 @@
     
 
 
-    
-
-
 
 
   
@@ -193,8 +246,13 @@
 
   
 
+
+
     <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
 <script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+<!--prettify代码高亮脚本引入-->
+
 
   </body>
 </html>
